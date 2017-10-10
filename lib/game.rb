@@ -1,10 +1,10 @@
 class Game
 
-  attr_accessor :players, :positions, :odd_turns
+  attr_accessor :players, :board, :odd_turns
 
   def initialize
     @players = []
-    @board = [nil, nil, nil, nil, nil, nil, nil, nil, nil]
+    @board = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     @odd_turns = true
   end
 
@@ -14,8 +14,15 @@ class Game
   end
 
   def play(position)
-    @positions[position] = 'x' if @odd_turns == true
-    @positions[position] = 'o' if @odd_turns == false
+    raise "position already taken" unless taken?(position)
+    @board[position] = 'x' if @odd_turns == true
+    @board[position] = 'o' if @odd_turns == false
     @odd_turns = !@odd_turns
+  end
+
+  private
+
+  def taken?(position)
+    @board[position] == 0
   end
 end

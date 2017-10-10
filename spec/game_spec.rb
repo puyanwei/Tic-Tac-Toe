@@ -22,4 +22,11 @@ RSpec.describe Game do
       expect(game.board[9]).to eq(nil)
     end
   end
+
+  context '#error' do
+    it 'throws an error if position on board is already taken' do
+      game.play(1)
+      expect { game.play(1) }.to raise_error("position already taken")
+    end
+  end
 end
