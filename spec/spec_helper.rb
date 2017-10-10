@@ -2,6 +2,8 @@ require 'simplecov'
 require 'simplecov-console'
 
 require 'game'
+
+
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::HTMLFormatter,
   SimpleCov::Formatter::Console,
