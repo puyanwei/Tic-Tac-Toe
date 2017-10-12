@@ -7,6 +7,7 @@ class Board
   end
 
   def play(position)
+  raise "invalid position" if valid?(position)
   raise "position already taken" unless taken?(position)
   @state[position - 1] = 'x' if @odd_turns == true
   @state[position - 1] = 'o' if @odd_turns == false
@@ -18,5 +19,9 @@ class Board
 
   def taken?(position)
       @state[position - 1] == 0
+  end
+
+  def valid?(position)
+    position < 1 or position > 9
   end
 end
