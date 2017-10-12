@@ -2,7 +2,7 @@ require 'simplecov'
 require 'simplecov-console'
 
 require 'game'
-
+require 'board'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::HTMLFormatter,

@@ -11,22 +11,5 @@ RSpec.describe Game do
     end
   end
 
-  context '#alternate' do
-    it 'alternates between symbols per turn and takes that position on the board' do
-      game.play(4)
-      game.play(5)
-      game.play(1)
-      expect(game.board[4]).to eq('x')
-      expect(game.board[5]).to eq('o')
-      expect(game.board[1]).to eq('x')
-      expect(game.board[9]).to eq(nil)
-    end
-  end
-
-  context '#error' do
-    it 'throws an error if position on board is already taken' do
-      game.play(1)
-      expect { game.play(1) }.to raise_error("position already taken")
-    end
-  end
+  
 end

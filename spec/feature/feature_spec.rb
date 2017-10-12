@@ -4,11 +4,11 @@ RSpec.describe Game do
   describe "Plays a game" do
     it "Makes player 1 the winner" do
       game.start("player1", "player2")
-      game.move(3)
-      game.move(4)
-      game.move(6)
-      game.move(1)
-      game.move(9)
+      game.play(3)
+      game.play(4)
+      game.play(6)
+      game.play(1)
+      game.play(9)
       expect(game.winner).to output("player 1 is the winner").to_stdout
     end
   end
