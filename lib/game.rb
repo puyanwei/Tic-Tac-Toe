@@ -13,8 +13,7 @@ class Game
     @players << player2
   end
 
-  def play(position)
-    board = Board.new
+  def play(position, board = Board.new)
     board.play(position)
   end
 end
