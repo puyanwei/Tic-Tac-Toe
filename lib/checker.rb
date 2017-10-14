@@ -10,7 +10,6 @@ class Checker
 
   def check_winner
     top_row? || middle_row? || bottom_row? || left_col? || middle_col? || right_col? || diag_down? || diag_up?
-
   end
 
   def top_row?

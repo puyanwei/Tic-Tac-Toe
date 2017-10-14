@@ -1,7 +1,6 @@
-def load
   require './lib/board'
   require './lib/game'
-end
+  require './lib/checker'
 
-game = Game.new
-game.start("bob", "mike")
+  game = Game.new
+  game.start("bob", "mike")

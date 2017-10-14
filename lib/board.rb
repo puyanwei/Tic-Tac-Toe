@@ -12,7 +12,7 @@ class Board
     @state[position - 1] = 'X' if @odd_turns == true
     @state[position - 1] = 'O' if @odd_turns == false
     checker = Checker.new(@state)
-    checker.check_winner
+    return "game over" if checker.check_winner
     next_turn
     p @state
   end

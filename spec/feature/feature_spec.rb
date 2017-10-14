@@ -8,8 +8,7 @@ RSpec.describe Game do
       game.play(4)
       game.play(6)
       game.play(1)
-      game.play(9)
-      expect(game.winner).to output("player 1 is the winner").to_stdout
+      expect(game.play(9)).to eq("game over")
     end
   end
 end
