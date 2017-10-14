@@ -24,6 +24,7 @@ RSpec.describe Board do
       board.play(1)
       expect { board.play(1) }.to raise_error("position already taken")
     end
+    
     it 'throws an error if position number is not 1 to 9' do
       expect { board.play(11) }.to raise_error("invalid position")
     end

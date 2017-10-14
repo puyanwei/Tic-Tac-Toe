@@ -1,10 +1,7 @@
-pry
-require './lib/game'
-require './lib/board'
+def load
+  require './lib/board'
+  require './lib/game'
+end
+
 game = Game.new
 game.start("bob", "mike")
-# game.play(4)
-# game.play(5)
-# game.play(7)
-# game.play(3)
-# game.play(8)
