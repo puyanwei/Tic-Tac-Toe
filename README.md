@@ -1,5 +1,5 @@
 # Tic Tac Toe
-This is the famous 2 player game Tic Tac Toe, also known as Naughts and Crosses.
+This is the famous 2 player game Tic Tac Toe, also known as Naughts and Crosses. Get three of your chosen symbol in a line to win.
 
 ## Tech Stack
 - Ruby
@@ -35,47 +35,13 @@ game = Game.new
 ```ruby
 game.start("Bob", "Mike")
  ```
- ```ruby
-bank.open_account(account)
-=> [#<Account:0x007ff3c11640d8
-  @balance=0,
-  @transaction_history=[]>]
-```
-- Makes a deposit.
+- Play by choosing a position on the board.
+
 ```ruby
-account.make_deposit("08/14/17", 5000)
-=> [#<Deposit:0x007ff3c132d7e8
-  @balance=5000,
-  @credit=5000,
-  @date="08/14/17",
-  @debit=0>]
+game.play(2)
 ```
-- Makes a withdrawal.
-```ruby
-account.make_withdrawal("09/14/17", 3500)
-=> [#<Withdrawal:0x007ff3c133cc70
-  @balance=1500,
-  @credit=3500,
-  @date="09/14/17",
-  @debit=0>
-  ```
-- Throws an error if there are insufficient funds to withdrawal.
-```ruby
-account.make_withdrawal(10/14/17, 2000)
-RuntimeError: insufficient funds
-```
-- Balance checking.
-```ruby
-account.balance
-=> 1500
-```
-- Print out their complete transaction history.
-```ruby
-account.print_history
-date || credit || debit || balance
-09/14/17 || 0 || 3500 || 1500
-08/14/17 || 5000 || 0 || 5000
-```
+- Game is over when someone wins or there are no moves left.
+
 ## Quality control
 The aim of this exercise was to write high quality code.
 
