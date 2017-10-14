@@ -7,14 +7,14 @@ RSpec.describe Board do
     end
   end
 
-  context '#alternate' do
+  context '#play' do
     it 'alternates between symbols per turn and takes that position on the board' do
       board.play(4)
       board.play(5)
       board.play(1)
-      expect(board.state[3]).to eq('x')
-      expect(board.state[4]).to eq('o')
-      expect(board.state[0]).to eq('x')
+      expect(board.state[3]).to eq('X')
+      expect(board.state[4]).to eq('O')
+      expect(board.state[0]).to eq('X')
       expect(board.state[8]).to eq(0)
     end
   end
