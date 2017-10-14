@@ -13,7 +13,6 @@ class Board
     checker = Checker.new(@state)
     return "game over" if checker.check_winner
     next_turn
-    p @state
   end
 
   private

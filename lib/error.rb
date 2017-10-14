@@ -12,7 +12,7 @@ class Error
   end
 
   def taken?(position)
-    @state[position - 1].zero?
+    @state[position - 1] == 0
   end
 
   def valid?(position)
