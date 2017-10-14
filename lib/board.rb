@@ -2,7 +2,7 @@ class Board
 
   attr_accessor :state, :odd_turns
   def initialize
-    @state =  [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    @state = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     @odd_turns = true
   end
 
@@ -11,15 +11,16 @@ class Board
     raise "position already taken" unless taken?(position)
     @state[position - 1] = 'X' if @odd_turns == true
     @state[position - 1] = 'O' if @odd_turns == false
-    @odd_turns = !@odd_turns
+    checker = Checker.new(@state)
+    checker.check_win
+    next_turn
     p @state
   end
 
-  def view
-    @state
-  end
-
   private
+  def next_turn
+    @odd_turns = !@odd_turns
+  end
 
   def odd_turn?
     @odd_turns

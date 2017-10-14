@@ -1,13 +1,13 @@
 RSpec.describe Board do
   subject(:board) { described_class.new }
 
-  context '#initialize' do
+  describe '#initialize' do
     it 'creates an empty board' do
       expect(board.state).to eq([0, 0, 0, 0, 0, 0, 0, 0, 0])
     end
   end
 
-  context '#play' do
+  describe '#play' do
     it 'alternates between symbols per turn and takes that position on the board' do
       board.play(4)
       board.play(5)
@@ -19,7 +19,7 @@ RSpec.describe Board do
     end
   end
 
-  context '#error' do
+  describe '#error' do
     it 'throws an error if position on board is already taken' do
       board.play(1)
       expect { board.play(1) }.to raise_error("position already taken")

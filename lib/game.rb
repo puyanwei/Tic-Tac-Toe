@@ -4,7 +4,7 @@ class Game
 
   attr_accessor :players, :board
 
-  def initialize(board = Board.new)#board here instead of in method is better for doubling purposes
+  def initialize(board = Board.new) # board here instead of in method is better for doubling purposes
     @players = []
     @board = board
   end
