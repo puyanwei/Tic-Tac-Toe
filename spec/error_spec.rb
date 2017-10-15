@@ -3,7 +3,7 @@ RSpec.describe Error do
 
   describe '#taken?' do
     it 'throws an error if position on board is already taken' do
-      error.state = ["X", "X", "X"]
+      error.state = ["X", "X", "X", 0]
       expect { error.error_check(1) }.to raise_error("position already taken")
     end
   end

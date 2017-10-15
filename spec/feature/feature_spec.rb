@@ -8,7 +8,22 @@ RSpec.describe Game do
       game.play(4)
       game.play(6)
       game.play(1)
-      expect(game.play(9)).to eq("game over")
+      expect(game.play(9)).to eq("game over, you win")
+    end
+  end
+
+  describe "Plays a game" do
+    it "Makes the game a tie" do
+      game.start("player1", "player2")
+      game.play(1)
+      game.play(2)
+      game.play(5)
+      game.play(3)
+      game.play(6)
+      game.play(4)
+      game.play(7)
+      game.play(9)
+      expect(game.play(8)).to eq("game over, its a tie!")
     end
   end
 end

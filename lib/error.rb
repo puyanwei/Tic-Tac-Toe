@@ -11,6 +11,8 @@ class Error
     raise "position already taken" unless taken?(position)
   end
 
+  private
+
   def taken?(position)
     @state[position - 1] == 0
   end
