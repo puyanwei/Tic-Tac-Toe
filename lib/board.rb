@@ -1,28 +1,53 @@
 class Board
 
-  attr_accessor :state, :odd_turns
+  attr_accessor :state, :odd_turns, :first
   def initialize
-    @state = [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    @state = "[ ][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]"
     @odd_turns = true
   end
 
-  def play(position, error = Error.new(@state))
-    error.error_check(position)
-    @state[position - 1] = 'X' if @odd_turns == true
-    @state[position - 1] = 'O' if @odd_turns == false
-    checker = Checker.new(@state)
-    return "game over, you win" if checker.check_winner
-    return "game over, its a tie!" if positions_left? == false
-    next_turn
+  def add_position(position)
+    # error.error_check(position)
+    calculate_position(position)
+    # result(checker = Checker.new(@state))
   end
 
   private
 
+  def calculate_position(position)
+    num = (position - 1) * 2
+    if position > 0 && position < 4
+      @state[num + position] = "X" if @odd_turns
+      @state[num + position] = "O" unless @odd_turns
+    end
+    if position > 3 && position < 7
+      @state[num + position + 1] = "X" if @odd_turns
+      @state[num + position + 1] = "O" unless @odd_turns
+    end
+    if position > 6 && position < 10
+      @state[num + position + 2] = "X" if @odd_turns
+      @state[num + position + 2] = "O" unless @odd_turns
+    end
+    next_turn
+    puts @state
+  end
   def next_turn
     @odd_turns = !@odd_turns
   end
-
-  def positions_left?
-    @state.include?(0)
-  end
 end
+
+  # def result(checker)
+  #   return "game over, you win" if checker.check_winner
+  #   return "game over, its a tie!" if !positions_left?
+  # end
+  #
+
+
+  # def positions_left?
+  #   @state.include?(0)
+  # end
+# 1, 2, 3, 4, 5,  6,  7,  8,  9
+# 1, 4, 7, 10,13,16, 19, 22, 25
+#
+# num = number of prev elements doubled added on?
+# 0, 2, 4, 6, 8, 10, 12  ,14 ,16
