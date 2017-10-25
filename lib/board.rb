@@ -31,6 +31,7 @@ class Board
     next_turn
     puts @state
   end
+
   def next_turn
     @odd_turns = !@odd_turns
   end
@@ -46,8 +47,3 @@ end
   # def positions_left?
   #   @state.include?(0)
   # end
-# 1, 2, 3, 4, 5,  6,  7,  8,  9
-# 1, 4, 7, 10,13,16, 19, 22, 25
-#
-# num = number of prev elements doubled added on?
-# 0, 2, 4, 6, 8, 10, 12  ,14 ,16

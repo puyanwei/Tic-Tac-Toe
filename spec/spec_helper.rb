@@ -3,7 +3,7 @@ require 'simplecov-console'
 
 require 'game'
 require 'board'
-# require 'checker'
+require 'checker'
 require 'players'
 # require 'error'
 # require 'display'
