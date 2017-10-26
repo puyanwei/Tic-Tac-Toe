@@ -9,7 +9,7 @@ class Board
   def add_position(position)
     # error.error_check(position)
     calculate_position(position)
-    # result(checker = Checker.new(@state))
+    return result(checker = Checker.new(@state))
   end
 
   private
@@ -35,15 +35,13 @@ class Board
   def next_turn
     @odd_turns = !@odd_turns
   end
+
+  def result(checker)
+    return "game over, you win" if checker.check_winner
+    return "game over, its a tie!" if !positions_left?
+  end
+
+  def positions_left?
+    @state.include?(" ")
+  end
 end
-
-  # def result(checker)
-  #   return "game over, you win" if checker.check_winner
-  #   return "game over, its a tie!" if !positions_left?
-  # end
-  #
-
-
-  # def positions_left?
-  #   @state.include?(0)
-  # end
