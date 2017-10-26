@@ -5,9 +5,6 @@ class Checker
   def initialize(state)
     @state = state
   end
-  # 1,  4,  7
-  # 10, 13, 16
-  # 19, 22, 25
 
   def check_winner
     top_row? || middle_row? || bottom_row? || left_col? || middle_col? || right_col? || diag_down? || diag_up?
