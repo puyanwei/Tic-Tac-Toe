@@ -3,22 +3,25 @@ class Board
   attr_accessor :state, :odd_turns, :turns
   def initialize
     @state = "[ ][ ][ ][ ][ ][ ][ ][ ][ ]"
-    @odd_turns = true
+    @odd_turns =
+    @turn = 0
   end
 
   def add_position(position)
-    calculate_position(position, display = Display.new)
+    calculate_position(position)
     return result(checker = Checker.new(@state))
+    @turn += 1
   end
 
   private
 
-  def calculate_position(position, display)
+  def calculate_position(position)
     num = (position - 1) * 2
     @state[num + position] = "X" if @odd_turns
     @state[num + position] = "O" unless @odd_turns
+    display = Display.new(@state, @turn)
+    display.show
     next_turn
-    display.show(@state)
   end
 
   def next_turn

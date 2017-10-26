@@ -8,7 +8,7 @@ RSpec.describe Board do
     end
   end
 
-  describe '#play' do
+  describe '#add_position' do
     it 'alternates between symbols per turn and takes that position on the board' do
       board.add_position(4)
       board.add_position(5)
