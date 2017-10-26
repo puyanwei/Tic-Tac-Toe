@@ -1,6 +1,6 @@
 class Game
 
-  attr_accessor :board
+  attr_accessor :board, :turn
 
   def initialize(board = Board.new)
     @board = board

@@ -1,10 +1,10 @@
 RSpec.describe Board do
   subject(:board) { described_class.new }
-  # let(:checker) { double :checker }
+  let(:checker) { double :checker }
 
   describe '#initialize' do
     it 'creates an empty board' do
-      expect(board.state).to eq("[ ][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]")
+      expect(board.state).to eq("[ ][ ][ ][ ][ ][ ][ ][ ][ ]")
     end
   end
 
@@ -13,7 +13,7 @@ RSpec.describe Board do
       board.add_position(4)
       board.add_position(5)
       board.add_position(1)
-      expect(board.state).to eq("[X][ ][ ]\n[X][O][ ]\n[ ][ ][ ]")
+      expect(board.state).to eq("[X][ ][ ][X][O][ ][ ][ ][ ]")
     end
   end
 

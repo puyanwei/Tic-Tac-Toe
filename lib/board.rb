@@ -1,35 +1,24 @@
 class Board
 
-  attr_accessor :state, :odd_turns, :first
+  attr_accessor :state, :odd_turns, :turns
   def initialize
-    @state = "[ ][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]"
+    @state = "[ ][ ][ ][ ][ ][ ][ ][ ][ ]"
     @odd_turns = true
   end
 
   def add_position(position)
-    # error.error_check(position)
-    calculate_position(position)
+    calculate_position(position, display = Display.new)
     return result(checker = Checker.new(@state))
   end
 
   private
 
-  def calculate_position(position)
+  def calculate_position(position, display)
     num = (position - 1) * 2
-    if position > 0 && position < 4
-      @state[num + position] = "X" if @odd_turns
-      @state[num + position] = "O" unless @odd_turns
-    end
-    if position > 3 && position < 7
-      @state[num + position + 1] = "X" if @odd_turns
-      @state[num + position + 1] = "O" unless @odd_turns
-    end
-    if position > 6 && position < 10
-      @state[num + position + 2] = "X" if @odd_turns
-      @state[num + position + 2] = "O" unless @odd_turns
-    end
+    @state[num + position] = "X" if @odd_turns
+    @state[num + position] = "O" unless @odd_turns
     next_turn
-    puts @state
+    display.show(@state)
   end
 
   def next_turn
@@ -38,7 +27,7 @@ class Board
 
   def result(checker)
     return "game over, you win" if checker.check_winner
-    return "game over, its a tie!" if !positions_left?
+    return "game over, its a tie!" unless positions_left?
   end
 
   def positions_left?
