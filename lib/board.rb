@@ -38,7 +38,7 @@ class Board
 
   def result(checker)
     return "game over, you win" if checker.check_winner
-    return "game over, its a tie!" if !positions_left?
+    return "game over, its a tie!" unless positions_left?
   end
 
   def positions_left?
