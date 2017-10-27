@@ -15,20 +15,21 @@ class Board
 
   def calculate_position(position)
     num = (position - 1) * 2
+    index = num + position
     if position > 0 && position < 4
-      raise "position already taken" if @state[num + position] != " "
-      @state[num + position] = "X" if @odd_turns
-      @state[num + position] = "O" unless @odd_turns
+      raise "position already taken" if @state[index] != " "
+      @state[index] = "X" if @odd_turns
+      @state[index] = "O" unless @odd_turns
     end
     if position > 3 && position < 7
-      raise "position already taken" if @state[num + position + 1] != " "
-      @state[num + position + 1] = "X" if @odd_turns
-      @state[num + position + 1] = "O" unless @odd_turns
+      raise "position already taken" if @state[index + 1] != " "
+      @state[index + 1] = "X" if @odd_turns
+      @state[index + 1] = "O" unless @odd_turns
     end
     if position > 6 && position < 10
-      raise "position already taken" if @state[num + position + 2] != " "
-      @state[num + position + 2] = "X" if @odd_turns
-      @state[num + position + 2] = "O" unless @odd_turns
+      raise "position already taken" if @state[index + 2] != " "
+      @state[index + 2] = "X" if @odd_turns
+      @state[index + 2] = "O" unless @odd_turns
     end
     next_turn
     puts @state
