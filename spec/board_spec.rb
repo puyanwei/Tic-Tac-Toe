@@ -30,4 +30,11 @@ RSpec.describe Board do
       expect(board.add_position(8)).to eq("game over, its a tie!")
     end
   end
+
+  describe '#taken?' do
+    it 'throws an error if position is already taken' do
+      board.add_position(1)
+      expect { board.add_position(1) }.to raise_error("position already taken")
+    end
+  end
 end
