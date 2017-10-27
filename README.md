@@ -39,9 +39,38 @@ game.start("Bob", "Mike")
 
 ```ruby
 game.play(2)
+
+[ ][X][ ]
+[ ][ ][ ]
+[ ][ ][ ]
 ```
 - Game is over when someone wins or there are no moves left.
 
+```ruby
+game.play(7)
+[X][ ][O]
+[X][O][O]
+[O][X][X]
+=> "game over, you win"
+```
+```ruby
+game.play(7)
+[O][X][O]
+[O][X][X]
+[X][O][X]
+=> "game over, its a tie!"
+```
+- Error checking
+
+```ruby
+game.play(2)
+[ ][X][ ]
+[ ][ ][ ]
+[ ][ ][ ]
+=> nil
+[63] pry(main)> game.play(2)
+RuntimeError: position already taken
+```
 ## Quality control
 The aim of this exercise was to write high quality code.
 
