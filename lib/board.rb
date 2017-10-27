@@ -7,7 +7,6 @@ class Board
   end
 
   def add_position(position)
-    # error.error_check(position)
     calculate_position(position)
     return result(checker = Checker.new(@state))
   end
