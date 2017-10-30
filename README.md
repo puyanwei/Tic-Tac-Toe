@@ -10,10 +10,10 @@ This is the famous 2 player game Tic Tac Toe, also known as Naughts and Crosses.
 
 ## Installation
 Use the terminal to clone this repo by typing in
-`git clone git@github.com:pyan83/tic-tac-toe-revisited.git`
+`git clone git@github.com:puyanwei/Tic-Tac-Toe.git`
 
 Install the relevant gems by typing in `bundle install`.
-Then `cd tic-tac-toe-revisited` to go to the root folder.
+Then `cd Tic-Tac-Toe` to go to the root folder.
 
 Type `pry` to enter the sandbox and type in `'require ./bin/load`, and then write `load`.
 Alternatively you can choose to use `irb` instead of `pry`.
