@@ -8,7 +8,7 @@ class Board
 
   def add_position(position)
     calculate_position(position)
-    return result(checker = Checker.new(@state))
+    return result(Checker.new(@state))
   end
 
   private
@@ -18,8 +18,7 @@ class Board
     @state[position - 1] = "X" if @odd_turns
     @state[position - 1] = "O" unless @odd_turns
     next_turn
-    p @state
-    # show
+    show
   end
 
   def next_turn
@@ -41,6 +40,8 @@ class Board
       board << "[#{position}]" if position != nil
       board << "[ ]" if position.nil?
     end
-    puts board.insert(9, "\n") && board.insert(19, "\n") && board.insert(29, "\n")
+    board.insert(9, "\n")
+    board.insert(19, "\n")
+    puts board.insert(29, "\n")
   end
 end
