@@ -7,38 +7,10 @@ class Checker
   end
 
   def check_winner
-    top_row? || middle_row? || bottom_row? || left_col? || middle_col? || right_col? || diag_down? || diag_up?
+    three_in_a_row?(0, 1, 2) || three_in_a_row?(3, 4, 5) || three_in_a_row?(6, 7, 8) || three_in_a_row?(0, 3, 6) || three_in_a_row?(1, 4, 7) || three_in_a_row?(2, 5, 8) || three_in_a_row?(0, 4, 8) || three_in_a_row?(6, 4, 2)
   end
 
-  def top_row?
-    @state[1] == "O" && @state[4] == "O" && @state[7] == "O" || @state[1] == "X" && @state[4] == "X" && @state[7] == "X"
-  end
-
-  def middle_row?
-    @state[11] == "O" && @state[14] == "O" && @state[17] == "O" || @state[11] == "X" && @state[14] == "X" && @state[17] == "X"
-  end
-
-  def bottom_row?
-    @state[21] == "O" && @state[24] == "O" && @state[27] == "O" || @state[21] == "X" && @state[24] == "X" && @state[27] == "X"
-  end
-
-  def left_col?
-    @state[1] == "O" && @state[11] == "O" && @state[21] == "O" || @state[1] == "X" && @state[11] == "X" && @state[21] == "X"
-  end
-
-  def middle_col?
-    @state[4] == "O" && @state[14] == "O" && @state[24] == "O" || @state[4] == "X" && @state[14] == "X" && @state[24] == "X"
-  end
-
-  def right_col?
-    @state[7] == "O" && @state[17] == "O" && @state[27] == "O" || @state[7] == "X" && @state[17] == "X" && @state[27] == "X"
-  end
-
-  def diag_down?
-    @state[1] == "O" && @state[14] == "O" && @state[27] == "O" || @state[1] == "X" && @state[14] == "X" && @state[27] == "X"
-  end
-
-  def diag_up?
-    @state[7] == "O" && @state[14] == "O" && @state[21] == "O" || @state[7] == "X" && @state[14] == "X" && @state[21] == "X"
+  def three_in_a_row?(first, second, third)
+    [@state[first], @state[second], @state[third]].uniq.length == 1
   end
 end

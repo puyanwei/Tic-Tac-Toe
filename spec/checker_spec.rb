@@ -4,7 +4,7 @@ RSpec.describe Checker do
 
   describe "#check_winner" do
     it 'checks the board to see if top row wins with O' do
-      checker.state = "[O][O][O]\n[ ][ ][ ]\n[ ][ ][ ]"
+      checker.state = ["O", "O", "O", nil, nil, nil, nil, nil, nil]
       expect(checker.check_winner).to be(true)
     end
 
