@@ -2,7 +2,7 @@ class Board
 
   attr_accessor :state, :odd_turns, :first
   def initialize
-    @state = "[ ][ ][ ]\n[ ][ ][ ]\n[ ][ ][ ]"
+    @state = Array.new(9)
     @odd_turns = true
   end
 
@@ -14,25 +14,11 @@ class Board
   private
 
   def calculate_position(position)
-    num = (position - 1) * 2
-    index = num + position
-    if position > 0 && position < 4
-      raise "position already taken" if @state[index] != " "
-      @state[index] = "X" if @odd_turns
-      @state[index] = "O" unless @odd_turns
-    end
-    if position > 3 && position < 7
-      raise "position already taken" if @state[index + 1] != " "
-      @state[index + 1] = "X" if @odd_turns
-      @state[index + 1] = "O" unless @odd_turns
-    end
-    if position > 6 && position < 10
-      raise "position already taken" if @state[index + 2] != " "
-      @state[index + 2] = "X" if @odd_turns
-      @state[index + 2] = "O" unless @odd_turns
-    end
+    raise "position already taken" if @state[position - 1] != nil
+    @state[position - 1] = "X" if @odd_turns
+    @state[position - 1] = "O" unless @odd_turns
     next_turn
-    puts @state
+    show
   end
 
   def next_turn
@@ -45,6 +31,10 @@ class Board
   end
 
   def positions_left?
-    @state.include?(" ")
+    @state.include?(nil)
+  end
+
+  def show
+    puts @state.forEach { |position| puts "[#{position}]"  }
   end
 end
