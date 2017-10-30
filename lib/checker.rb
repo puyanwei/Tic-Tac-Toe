@@ -11,6 +11,12 @@ class Checker
   end
 
   def three_in_a_row?(first, second, third)
-    [@state[first], @state[second], @state[third]].uniq.length == 1
+    return if has_nil?(first, second, third)
+
+    @state[first] == @state[second] && @state[first] == @state[third]
+  end
+
+  def has_nil? (first, second, third)
+    [@state[first] || @state[second] || @state[third]].include? nil
   end
 end

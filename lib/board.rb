@@ -18,7 +18,8 @@ class Board
     @state[position - 1] = "X" if @odd_turns
     @state[position - 1] = "O" unless @odd_turns
     next_turn
-    show
+    p @state
+    # show
   end
 
   def next_turn
