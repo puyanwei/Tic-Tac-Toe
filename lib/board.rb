@@ -35,6 +35,11 @@ class Board
   end
 
   def show
-    puts @state.forEach { |position| puts "[#{position}]"  }
+    board = ""
+    @state.each do |position|
+      board << "[#{position}]" if position != nil
+      board << "[ ]" if position.nil?
+    end
+    puts board.insert(9, "\n") && board.insert(19, "\n") && board.insert(29, "\n")
   end
 end
