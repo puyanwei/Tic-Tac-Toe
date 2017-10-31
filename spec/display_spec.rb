@@ -1,6 +1,5 @@
 RSpec.describe Display do
-  subject(:display) { described_class.new([]) }
-  # let(:state) {double :state}
+  subject(:display) { described_class.new([nil]) }
 
   describe '#formatter' do
     it 'formats the array into a 3 by 3 board output' do
