@@ -1,6 +1,6 @@
 class Checker
 
-  attr_accessor :state
+  attr_accessor :state, :first, :second, :third
 
   def initialize(state)
     @state = state
@@ -13,12 +13,18 @@ class Checker
   private
 
   def three_in_a_row?(first, second, third)
-    return if blank?(first, second, third)
-
-    "#{@state[first]}" == "#{@state[second]}" && "#{@state[first]}" == "#{@state[third]}"
+    @first = @state[first]
+    @second = @state[second]
+    @third = @state[third]
+    return if blank?
+    same?
   end
 
-  def blank?(first, second, third)
-    [@state[first] || @state[second] || @state[third]].include? nil
+  def same?
+    @first == @second && @first == @third
+  end
+
+  def blank?
+    [@first, @second, @third].include? nil
   end
 end
