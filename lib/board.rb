@@ -35,13 +35,7 @@ class Board
   end
 
   def show
-    board = ""
-    @state.each do |position|
-      board << "[#{position}]" if position != nil
-      board << "[ ]" if position.nil?
-    end
-    board.insert(9, "\n")
-    board.insert(19, "\n")
-    puts board.insert(29, "\n")
+    display = Display.new(@state)
+    display.formatter
   end
 end
