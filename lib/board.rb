@@ -6,24 +6,23 @@ class Board
     @odd_turns = true
   end
 
-  def add_position(position)
-    calculate_position(position)
-    return result(Checker.new(@state))
+  def action(position)
+    add_position(position)
+    next_turn
+    result(Checker.new(@state))
   end
 
-  private
-
-  def calculate_position(position)
-    raise "position already taken" if @state[position - 1] != nil
+  def add_position(position)
+    raise "position already taken" if position_taken?(position)
     @state[position - 1] = "X" if @odd_turns
     @state[position - 1] = "O" unless @odd_turns
-    next_turn
-    show
   end
 
   def next_turn
     @odd_turns = !@odd_turns
   end
+
+  private
 
   def result(checker)
     return "game over, you win" if checker.check_winner
@@ -32,6 +31,10 @@ class Board
 
   def positions_left?
     @state.include?(nil)
+  end
+
+  def position_taken?(position)
+    @state[position - 1] != nil
   end
 
   def show

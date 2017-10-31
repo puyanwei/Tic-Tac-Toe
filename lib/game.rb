@@ -14,6 +14,6 @@ class Game
   end
 
   def play(position)
-    @board.add_position(position)
+    @board.action(position)
   end
 end

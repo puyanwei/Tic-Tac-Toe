@@ -11,30 +11,33 @@ RSpec.describe Board do
   describe '#add_position' do
     it 'alternates between symbols per turn and takes that position on the board' do
       board.add_position(4)
+      board.next_turn
       board.add_position(5)
+      board.next_turn
       board.add_position(1)
+      board.next_turn
       expect(board.state).to eq(["X", nil, nil, "X", "O", nil, nil, nil, nil])
     end
   end
 
   describe '#positions_left?' do
     it 'returns "game over, its a tie!" when there are no more spaces left' do
-      board.add_position(1)
-      board.add_position(2)
-      board.add_position(5)
-      board.add_position(3)
-      board.add_position(6)
-      board.add_position(4)
-      board.add_position(7)
-      board.add_position(9)
-      expect(board.add_position(8)).to eq("game over, its a tie!")
+      board.action(1)
+      board.action(2)
+      board.action(5)
+      board.action(3)
+      board.action(6)
+      board.action(4)
+      board.action(7)
+      board.action(9)
+      expect(board.action(8)).to eq("game over, its a tie!")
     end
   end
 
   describe '#taken?' do
     it 'throws an error if position is already taken' do
-      board.add_position(1)
-      expect { board.add_position(1) }.to raise_error("position already taken")
+      board.action(1)
+      expect { board.action(1) }.to raise_error("position already taken")
     end
   end
 end

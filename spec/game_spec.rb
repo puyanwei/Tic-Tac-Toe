@@ -12,8 +12,8 @@ RSpec.describe Game do
 
   describe '#play' do
     it 'play calls board to add a move' do
-      allow(board).to receive(:add_position)
-      expect(board).to receive(:add_position)
+      allow(board).to receive(:action)
+      expect(board).to receive(:action)
       game.play(1)
     end
   end
