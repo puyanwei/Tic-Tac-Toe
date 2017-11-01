@@ -22,12 +22,12 @@ class Board
     @odd_turns = !@odd_turns
   end
 
-  private
-
   def result(checker)
     return "game over, you win" if checker.check_winner
     return "game over, its a tie!" unless positions_left?
   end
+
+  private
 
   def positions_left?
     @state.include?(nil)
