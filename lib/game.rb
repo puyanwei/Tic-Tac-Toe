@@ -14,6 +14,7 @@ class Game
   end
 
   def play(position)
+    raise "invalid position" if invalid_position?(position)
     @board.action(position)
   end
 
@@ -23,5 +24,11 @@ class Game
 
   def tie?
     board.tie
+  end
+
+  private
+
+  def invalid_position?(position)
+    return true if position > 9 || position < 1
   end
 end

@@ -14,8 +14,6 @@ class Result
     return true if positions_left? == false
   end
 
-  private
-
   def positions_left?
     @state.include?(nil)
   end
