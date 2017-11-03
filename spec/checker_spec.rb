@@ -2,12 +2,12 @@ RSpec.describe Checker do
   subject(:checker) { described_class.new(state) }
   let(:state) { double :state }
 
-  describe "#check_winner" do
-    it 'checks the board to see if top row wins with X' do
+  fdescribe "#check_winner" do
+    fit 'checks the board to see if top row wins with X' do
       checker.state = ["X", "X", "X", nil, nil, nil, nil, nil, nil]
       expect(checker.check_winner).to be(true)
     end
-
+  
     it 'checks the board to see if middle row wins with X' do
       checker.state = [nil, nil, nil, "X", "X", "X", nil, nil, nil]
       expect(checker.check_winner).to be(true)

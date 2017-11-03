@@ -15,7 +15,7 @@ class Board
     add_position(position)
     next_turn
     result
-    show_board
+    # show_board
   end
 
   def add_position(position)

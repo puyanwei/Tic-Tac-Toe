@@ -4,6 +4,14 @@ class Checker
 
   def initialize(state)
     @state = state
+    # @top = [0,1,2]
+    # @middle_row = [3,4,5]
+    # @bottom = [6,7,8]
+    # @left = [0,3,6]
+    # @middle_col = [1,4,7]
+    # @right = [2,5,8]
+    # @diagonal_down = [0,4,8]
+    # @diagonal_up = [2,4,6]
   end
 
   def check_winner
