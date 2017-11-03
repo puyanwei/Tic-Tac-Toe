@@ -6,7 +6,7 @@ class Result
     @state = state
   end
 
-  def win? (checker = Checker.new(@state))
+  def win?(checker = Checker.new(@state))
     return true if checker.check_winner
   end
 

@@ -17,10 +17,10 @@ RSpec.describe Game do
 #     game.play(1)
 #   end
     it 'throws an error if an invalid position is chosen' do
-      expect{ game.play(10) }.to raise_error("invalid position")
+      expect { game.play(10) }.to raise_error("invalid position")
     end
     it 'throws an error if an invalid position is chosen' do
-      expect{ game.play(-2) }.to raise_error("invalid position")
+      expect { game.play(-2) }.to raise_error("invalid position")
     end
   end
   #
