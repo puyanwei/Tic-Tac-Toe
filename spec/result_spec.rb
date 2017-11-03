@@ -2,7 +2,7 @@ RSpec.describe Result do
   subject(:result) { described_class.new([]) }
   let(:checker) { double :checker }
 
-  describe ('#initialize') do
+  describe '#initialize' do
     it 'shows a state' do
       expect(result.state).to eq([])
     end
@@ -14,11 +14,4 @@ RSpec.describe Result do
       expect(result.tie?).to eq(true)
     end
   end
-
-  # describe '#win?' do
-  #   it 'checks for a win' do
-  #     allow(result).to receive(:checker).with(:check_winner).and_return(true)
-  #     expect(result.win?).to eq(true)
-  #   end
-  # end
 end

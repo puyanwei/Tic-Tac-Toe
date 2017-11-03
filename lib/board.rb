@@ -14,7 +14,7 @@ class Board
   def action(position)
     add_position(position)
     next_turn
-    get_result
+    result
     show_board
   end
 
@@ -28,7 +28,7 @@ class Board
     @odd_turns = !@odd_turns
   end
 
-  # private
+  private
 
   def position_taken?(position)
     @state[position - 1] != nil
@@ -39,9 +39,9 @@ class Board
     display.formatter
   end
 
-  def get_result
+  def result
     result = Result.new(@state)
     @win = true if result.win?
-    @draw = true if result.tie?
+    @tie = true if result.tie?
   end
 end
