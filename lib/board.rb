@@ -1,6 +1,7 @@
 class Board
 
   attr_accessor :state, :odd_turns
+
   def initialize
     @state = Array.new(9)
     @odd_turns = true
@@ -9,7 +10,8 @@ class Board
   def action(position)
     add_position(position)
     next_turn
-    result = Result.new(@state)
+    show_result
+    show_board
   end
 
   def add_position(position)
@@ -24,16 +26,17 @@ class Board
 
   private
 
-  def positions_left?
-    @state.include?(nil)
-  end
-
   def position_taken?(position)
     @state[position - 1] != nil
   end
 
-  def show
+  def show_board
     display = Display.new(@state)
     display.formatter
+  end
+
+  def show_result
+    result = Result.new(@state)
+    result.display_result
   end
 end

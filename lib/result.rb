@@ -1,13 +1,13 @@
 class Result
 
-attr_accessor :state
+  attr_accessor :state
 
-def intialize(state)
-  @state = state
-end
+  def initialize(state)
+    @state = state
+  end
 
-  def game_result
-    return "game over, you win" if win? (Checker.new(@state))
+  def display_result (checker = Checker.new(@state))
+    return "game over, you win" if win?
     return "game over, its a tie!" if tie?
   end
 
@@ -17,6 +17,10 @@ end
 
   def tie?
     return true if positions_left? == false
+  end
+
+  def positions_left?
+    @state.include?(nil)
   end
 
 end
