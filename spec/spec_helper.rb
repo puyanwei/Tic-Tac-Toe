@@ -5,6 +5,7 @@ require 'game'
 require 'board'
 require 'checker'
 require 'display'
+require 'result'
 
 SimpleCov.formatter = SimpleCov::Formatter::MultiFormatter.new([
   SimpleCov::Formatter::HTMLFormatter,

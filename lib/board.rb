@@ -1,6 +1,6 @@
 class Board
 
-  attr_accessor :state, :odd_turns, :first
+  attr_accessor :state, :odd_turns
   def initialize
     @state = Array.new(9)
     @odd_turns = true
@@ -9,7 +9,7 @@ class Board
   def action(position)
     add_position(position)
     next_turn
-    result(Checker.new(@state))
+    result = Result.new(@state)
   end
 
   def add_position(position)
@@ -20,11 +20,6 @@ class Board
 
   def next_turn
     @odd_turns = !@odd_turns
-  end
-
-  def result(checker)
-    return "game over, you win" if checker.check_winner
-    return "game over, its a tie!" unless positions_left?
   end
 
   private

@@ -16,4 +16,12 @@ class Game
   def play(position)
     @board.action(position)
   end
+
+  def win?
+    board.win?
+  end
+
+  def tie?
+    board.tie?
+  end
 end

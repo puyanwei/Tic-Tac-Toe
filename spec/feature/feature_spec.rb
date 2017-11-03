@@ -1,18 +1,19 @@
 RSpec.describe Game do
   subject(:game) { described_class.new }
 
-  describe "Plays a game" do
+  describe "Feature Test 1 -" do
     it "Makes player 1 the winner" do
       game.start("player1", "player2")
       game.play(3)
       game.play(4)
       game.play(6)
       game.play(1)
-      expect(game.play(9)).to eq("game over, you win")
+      game.play(9)
+      expect(game.win?).to eq(true)
     end
   end
 
-  describe "Plays a game" do
+  describe "Feature Test 2 -" do
     it "Makes the game a tie" do
       game.start("player1", "player2")
       game.play(1)
@@ -23,7 +24,8 @@ RSpec.describe Game do
       game.play(4)
       game.play(7)
       game.play(9)
-      expect(game.play(8)).to eq("game over, its a tie!")
+      game.play(8)
+      expect(game.tie?).to eq(true)
     end
   end
 end
