@@ -10,8 +10,15 @@ RSpec.describe Result do
 
   describe '#positions_left?' do
     it 'its a tie when there are no more spaces left' do
-      allow(result).to receive(:checker).and_return(true)
+      result.state = ["X", "X", "O", "O", "X", "X", "O", "X", "X"]
       expect(result.tie?).to eq(true)
     end
   end
+
+  # describe '#win?' do
+  #   it 'checks for a win' do
+  #     allow(result).to receive(:checker).with(:check_winner).and_return(true)
+  #     expect(result.win?).to eq(true)
+  #   end
+  # end
 end

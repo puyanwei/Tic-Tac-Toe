@@ -1,16 +1,20 @@
+require './lib/result'
+
 class Board
 
-  attr_accessor :state, :odd_turns
+  attr_accessor :state, :odd_turns, :win, :tie
 
   def initialize
     @state = Array.new(9)
     @odd_turns = true
+    @win = false
+    @tie = false
   end
 
   def action(position)
     add_position(position)
     next_turn
-    show_result
+    get_result
     show_board
   end
 
@@ -24,7 +28,7 @@ class Board
     @odd_turns = !@odd_turns
   end
 
-  private
+  # private
 
   def position_taken?(position)
     @state[position - 1] != nil
@@ -35,8 +39,9 @@ class Board
     display.formatter
   end
 
-  def show_result
+  def get_result
     result = Result.new(@state)
-    result.display_result
+    @win = true if result.win?
+    @draw = true if result.tie?
   end
 end

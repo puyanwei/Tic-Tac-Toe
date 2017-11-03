@@ -6,18 +6,15 @@ class Result
     @state = state
   end
 
-  def display_result (checker = Checker.new(@state))
-    return "game over, you win" if win?
-    return "game over, its a tie!" if tie?
-  end
-
-  def win? (checker)
+  def win? (checker = Checker.new(@state))
     return true if checker.check_winner
   end
 
   def tie?
     return true if positions_left? == false
   end
+
+  private
 
   def positions_left?
     @state.include?(nil)

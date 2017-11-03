@@ -3,4 +3,5 @@ def load
   require './lib/game'
   require './lib/checker'
   require './lib/display'
+  require './lib/result'
 end
