@@ -5,7 +5,7 @@ class Board
   attr_accessor :state, :odd_turns, :win, :tie
 
   def initialize
-    @state = Array.new(9)
+    @state = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
     @odd_turns = true
     @win = false
     @tie = false
@@ -31,7 +31,7 @@ class Board
   private
 
   def position_taken?(position)
-    @state[position - 1] != nil
+    @state[position - 1] != " "
   end
 
   def show_board

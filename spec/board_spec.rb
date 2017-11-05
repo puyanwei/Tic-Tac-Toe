@@ -4,7 +4,7 @@ RSpec.describe Board do
 
   describe '#initialize' do
     it 'creates an empty board' do
-      expect(board.state).to eq([nil, nil, nil, nil, nil, nil, nil, nil, nil])
+      expect(board.state).to eq([" ", " ", " ", " ", " ", " ", " ", " ", " "])
     end
   end
 
@@ -16,7 +16,7 @@ RSpec.describe Board do
       board.next_turn
       board.add_position(1)
       board.next_turn
-      expect(board.state).to eq(["X", nil, nil, "X", "O", nil, nil, nil, nil])
+      expect(board.state).to eq(["X", " ", " ", "X", "O", " ", " ", " ", " "])
     end
   end
 
