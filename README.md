@@ -15,8 +15,7 @@ Use the terminal to clone this repo by typing in
 Install the relevant gems by typing in `bundle install`.
 Then `cd Tic-Tac-Toe` to go to the root folder.
 
-Type `pry` to enter the sandbox and type in `'require ./bin/load'`, and then write `load`.
-Alternatively you can choose to use `irb` instead of `pry`.
+Type `pry` to enter the sandbox and type in `'require ./bin/load'`. Alternatively you can choose to use `irb` instead of `pry`.
 
 ```ruby
 require './bin/load'
@@ -69,6 +68,7 @@ game.play(2)
 [63] pry(main)> game.play(2)
 RuntimeError: position already taken
 ```
+
 ## Quality control
 The aim of this exercise was to write high quality code.
 
@@ -77,4 +77,5 @@ This is achieved my for filling the following criteria;
 - Rubocop linter passes.
 - 95% or above test coverage.
 - Commits are regular, small and have good descriptions.
+- Good naming conventions, do not repeat (DRY), single responsibility principle, and reveals intention.
 - Flog score is low, which means methods have one responsibility and classes are small.
