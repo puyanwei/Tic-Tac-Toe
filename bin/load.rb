@@ -5,3 +5,5 @@ def load
   require './lib/display'
   require './lib/result'
 end
+
+load

@@ -1,47 +1,50 @@
-require './lib/result'
-
 class Board
 
-  attr_accessor :state, :odd_turns, :win, :tie
+  attr_accessor :board_state, :odd_turns, :win, :tie
 
   def initialize
-    @state = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
+    @board_state = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
     @odd_turns = true
-    @win = false
-    @tie = false
   end
 
   def action(position)
-    add_position(position)
+    @position = position
+    add_position
     next_turn
     result
-    # show_board
+    show_board
   end
 
-  def add_position(position)
-    raise "position already taken" if position_taken?(position)
-    @state[position - 1] = "X" if @odd_turns
-    @state[position - 1] = "O" unless @odd_turns
+  def add_position
+    raise "position already taken" if position_taken?
+    @board_state[@position - 1] = "X" if @odd_turns
+    @board_state[@position - 1] = "O" unless @odd_turns
   end
 
   def next_turn
     @odd_turns = !@odd_turns
   end
 
+  def win?
+    @win = true if result.win?
+  end
+
+  def tie?
+    @tie = true if result.tie?
+  end
+
   private
 
-  def position_taken?(position)
-    @state[position - 1] != " "
+  def position_taken?
+    @board_state[@position - 1] != " "
   end
 
   def show_board
-    display = Display.new(@state)
+    display = Display.new(@board_state)
     display.formatter
   end
 
   def result
-    result = Result.new(@state)
-    @win = true if result.win?
-    @tie = true if result.tie?
+    result = Result.new(@board_state)
   end
 end

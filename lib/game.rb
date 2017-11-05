@@ -19,11 +19,11 @@ class Game
   end
 
   def win?
-    board.win
+    board.win?
   end
 
   def tie?
-    board.tie
+    board.tie?
   end
 
   private

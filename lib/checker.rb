@@ -1,9 +1,9 @@
 class Checker
 
-  attr_accessor :state
+  attr_accessor :board_state
 
-  def initialize(state)
-    @state = state
+  def initialize(board_state)
+    @board_state = board_state
     @win_positions = [0, 1, 2, 3, 4, 5, 6, 7, 8, 0, 3, 6, 1, 4, 7, 2, 5, 8, 0, 4, 8, 2, 4, 6]
   end
 
@@ -14,13 +14,13 @@ class Checker
     end
   end
 
-  # private
+  private
 
   def transpose_positions(arr)
     return false if position_empty? arr
-    @first = @state[arr[0]]
-    @second = @state[arr[1]]
-    @third = @state[arr[2]]
+    @first = @board_state[arr[0]]
+    @second = @board_state[arr[1]]
+    @third = @board_state[arr[2]]
   end
 
   def three_in_a_row?
