@@ -45,6 +45,6 @@ class Board
   end
 
   def result
-    result = Result.new(@board_state)
+    Result.new(@board_state)
   end
 end
