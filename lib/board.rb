@@ -1,6 +1,6 @@
 class Board
 
-  attr_accessor :board_state, :odd_turns, :win, :tie
+  attr_accessor :board_state, :odd_turns, :win, :tie, :position
 
   def initialize
     @board_state = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
@@ -32,6 +32,8 @@ class Board
   def tie?
     result.tie?
   end
+
+  private
 
   def position_taken?
     @board_state[@position - 1] != " "

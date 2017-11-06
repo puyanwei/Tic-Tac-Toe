@@ -4,7 +4,6 @@ RSpec.describe Game do
   let(:win?) { double :win? }
   let(:tie?) { double :tie? }
 
-
   describe '#start' do
     it 'adds players to the game' do
       game.start("bob", "mike")
@@ -40,13 +39,13 @@ RSpec.describe Game do
     it 'outputs a message if there is a winner' do
       allow(game).to receive(:win?).and_return(true)
       allow(game).to receive(:tie?).and_return(false)
-      expect{game.display_result}.to output("game over, you win\n").to_stdout
+      expect { game.display_result }.to output("game over, you win\n").to_stdout
     end
 
     it 'outputs a message you if the game is tied' do
       allow(game).to receive(:win?).and_return(false)
       allow(game).to receive(:tie?).and_return(true)
-      expect{game.display_result}.to output("game over, its a tie\n").to_stdout
+      expect { game.display_result }.to output("game over, its a tie\n").to_stdout
     end
   end
 end
