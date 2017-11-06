@@ -23,4 +23,26 @@ RSpec.describe Board do
       expect { board.action(1) }.to raise_error("position already taken")
     end
   end
+
+  describe "#win?" do
+  #   it "sets win to true if there is a win" do
+  #     allow(board).to
+  #     receive(:result).with(:win?).and_return(true)
+  #     expect(board.win?).to be(true)
+  #   end
+    it "should not be true if the game does not have 3 in a row" do
+      board.action(2)
+      expect(board.win?).to eq(false)
+    end
+  end
+  # describe "#tie?" do
+  #   it "sets tie to true if there is a tie" do
+  #     allow(board).to receive(:result).with(:tie?).and_return(true)
+  #     expect(board.tie?).to be(true)
+  #   end
+  # end
+  it "should not be true if the game does not have 3 in a row" do
+    board.action(2)
+    expect(board.tie?).to eq(false)
+  end
 end

@@ -7,7 +7,7 @@ class Result
   end
 
   def win?(checker = Checker.new(@state))
-    checker.check_winner
+    checker.winner?
   end
 
   def tie?
@@ -15,6 +15,6 @@ class Result
   end
 
   def positions_left?
-    @state.include?(nil)
+    @state.include?(" ")
   end
 end

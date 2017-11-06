@@ -12,7 +12,7 @@ class Board
     add_position
     next_turn
     result
-    show_board
+    # show_board
   end
 
   def add_position
@@ -26,11 +26,11 @@ class Board
   end
 
   def win?
-    @win = true if result.win?
+    result.win?
   end
 
   def tie?
-    @tie = true if result.tie?
+    result.tie?
   end
 
   private
