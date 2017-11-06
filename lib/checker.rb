@@ -12,7 +12,7 @@ class Checker
       transpose_positions(arr)
       return true if three_in_a_row?
     end
-      return false
+    return false
   end
 
   private

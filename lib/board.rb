@@ -12,7 +12,7 @@ class Board
     add_position
     next_turn
     result
-    # show_board
+    show_board
   end
 
   def add_position
@@ -32,8 +32,6 @@ class Board
   def tie?
     result.tie?
   end
-
-  private
 
   def position_taken?
     @board_state[@position - 1] != " "

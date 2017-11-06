@@ -1,6 +1,8 @@
 RSpec.describe Board do
   subject(:board) { described_class.new }
   let(:checker) { double :checker }
+  let(:win) { double :win }
+
 
   describe '#initialize' do
     it 'creates an empty board' do
@@ -25,14 +27,13 @@ RSpec.describe Board do
   end
 
   describe "#win?" do
-  #   it "sets win to true if there is a win" do
-  #     allow(board).to
-  #     receive(:result).with(:win?).and_return(true)
-  #     expect(board.win?).to be(true)
-  #   end
-    it "should not be true if the game does not have 3 in a row" do
-      board.action(2)
-      expect(board.win?).to eq(false)
+    it "sets win to true if there is a win" do
+    allow(board).to receive(:win?).and_return(true)
+    expect(board.win?).to be(true)
+    end
+    it "sets win to true if there is a win" do
+    allow(board).to receive(:win?).and_return(false)
+    expect(board.win?).to be(false)
     end
   end
   # describe "#tie?" do

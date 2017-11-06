@@ -15,7 +15,7 @@ Use the terminal to clone this repo by typing in
 Install the relevant gems by typing in `bundle install`.
 Then `cd Tic-Tac-Toe` to go to the root folder.
 
-Type `pry` to enter the sandbox and type in `'require ./bin/load'`. Alternatively you can choose to use `irb` instead of `pry`.
+Type `pry` to enter the sandbox and type in `'require ./bin/load_game'`. Alternatively you can choose to use `irb` instead of `pry`.
 
 ```ruby
 require './bin/load'
