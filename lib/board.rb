@@ -1,6 +1,6 @@
 class Board
 
-  attr_accessor :board_state, :odd_turns, :win, :tie, :position
+  attr_accessor :board_state, :odd_turns, :position
 
   def initialize
     @board_state = [" ", " ", " ", " ", " ", " ", " ", " ", " "]
@@ -8,7 +8,7 @@ class Board
   end
 
   def action(position)
-    @position = position
+    @position = position - 1
     add_position
     next_turn
     result
@@ -17,8 +17,8 @@ class Board
 
   def add_position
     raise "position already taken" if position_taken?
-    @board_state[@position - 1] = "X" if @odd_turns
-    @board_state[@position - 1] = "O" unless @odd_turns
+    @board_state[@position] = "X" if @odd_turns
+    @board_state[@position] = "O" unless @odd_turns
   end
 
   def next_turn
@@ -36,7 +36,7 @@ class Board
   private
 
   def position_taken?
-    @board_state[@position - 1] != " "
+    @board_state[@position] != " "
   end
 
   def show_board
