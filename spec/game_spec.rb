@@ -4,15 +4,6 @@ RSpec.describe Game do
   let(:win?) { double :win? }
   let(:tie?) { double :tie? }
 
-  describe '#play' do
-    it 'throws an error if an invalid position is chosen' do
-      expect { game.play(10) }.to raise_error("invalid position")
-    end
-    it 'throws an error if an invalid position is chosen' do
-      expect { game.play(-2) }.to raise_error("invalid position")
-    end
-  end
-
   describe "#win?" do
     it "sets win to true if there is a win" do
       allow(game).to receive(:win?) { true }

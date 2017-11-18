@@ -15,7 +15,7 @@ class Board
   end
 
   def add_position(position)
-    raise "position already taken" if position_taken?(position)
+    error_check(position)
     board_state[position - 1] = "X" if odd_turns
     board_state[position - 1] = "O" unless odd_turns
   end
@@ -34,8 +34,17 @@ class Board
 
   private
 
+  def error_check(position)
+    raise "invalid position" if invalid_position?(position)
+    raise "position already taken" if position_taken?(position)
+  end
+
   def position_taken?(position)
     board_state[position - 1] != " "
+  end
+
+  def invalid_position?(position)
+    return true if position > 9 || position < 1
   end
 
   def show_board

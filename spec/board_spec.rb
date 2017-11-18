@@ -28,6 +28,15 @@ RSpec.describe Board do
     end
   end
 
+  describe '#invalid_position?' do
+    it 'throws an error if an invalid position is chosen' do
+      expect { board.add_position(10) }.to raise_error("invalid position")
+    end
+    it 'throws an error if an invalid position is chosen' do
+      expect { board.add_position(-2) }.to raise_error("invalid position")
+    end
+  end
+
   describe '#win?' do
     it "sets win to true if there is a win" do
       allow(board).to receive(:win?) { true }
