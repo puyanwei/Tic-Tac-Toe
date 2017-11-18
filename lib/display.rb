@@ -1,18 +1,18 @@
 class Display
 
-  attr_accessor :state, :board
+  attr_accessor :board_state
 
-  def initialize(state)
-    @state = state
-    @board = ""
+  def initialize(board_state)
+    @board_state = board_state
   end
 
   def formatter
-    @state.each do |position|
-      @board << "[ ]" if position == " "
-      @board << "[#{position}]" unless position == " "
+    display_board = ""
+    @board_state.each do |position|
+      display_board << "[ ]" if position == " "
+      display_board << "[#{position}]" unless position == " "
     end
-    @board.insert(9, "\n") && @board.insert(19, "\n")
-    puts @board.insert(29, "\n")
+    display_board.insert(9, "\n") && display_board.insert(19, "\n")
+    puts display_board.insert(29, "\n")
   end
 end
