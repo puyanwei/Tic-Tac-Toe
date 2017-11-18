@@ -9,8 +9,8 @@ class Display
 
   def formatter
     @state.each do |position|
-      @board << "[ ]" if position.nil?
-      @board << "[#{position}]" unless position.nil?
+      @board << "[ ]" if position == " "
+      @board << "[#{position}]" unless position == " "
     end
     @board.insert(9, "\n") && @board.insert(19, "\n")
     puts @board.insert(29, "\n")
