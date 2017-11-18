@@ -4,14 +4,6 @@ RSpec.describe Game do
   let(:win?) { double :win? }
   let(:tie?) { double :tie? }
 
-  describe '#start' do
-    it 'adds players to the game' do
-      game.start("bob", "mike")
-      expect(game.player1 = "bob")
-      expect(game.player1 = "mike")
-    end
-  end
-
   describe '#play' do
     it 'throws an error if an invalid position is chosen' do
       expect { game.play(10) }.to raise_error("invalid position")

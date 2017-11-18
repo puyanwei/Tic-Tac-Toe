@@ -3,7 +3,6 @@ RSpec.describe Game do
 
   describe "Feature Test 1 -" do
     it "Makes player 1 the winner" do
-      game.start("player1", "player2")
       game.play(3)
       game.play(4)
       game.play(6)
@@ -15,7 +14,6 @@ RSpec.describe Game do
 
   describe "Feature Test 2 -" do
     it "Makes the game a tie" do
-      game.start("player1", "player2")
       game.play(1)
       game.play(2)
       game.play(5)
