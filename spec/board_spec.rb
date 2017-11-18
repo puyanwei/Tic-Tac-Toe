@@ -11,14 +11,11 @@ RSpec.describe Board do
 
   describe '#add_position' do
     it 'alternates between symbols per turn and takes that position on the board' do
-      board.position = 0
-      board.add_position
+      board.add_position(1)
       board.next_turn
-      board.position = 4
-      board.add_position
+      board.add_position(5)
       board.next_turn
-      board.position = 3
-      board.add_position
+      board.add_position(4)
       board.next_turn
       expect(board.board_state).to eq(["X", " ", " ", "X", "O", " ", " ", " ", " "])
     end
@@ -26,9 +23,8 @@ RSpec.describe Board do
 
   describe '#taken?' do
     it 'throws an error if position is already taken' do
-      board.position = 1
-      board.add_position
-      expect { board.add_position }.to raise_error("position already taken")
+      board.add_position(1)
+      expect { board.add_position(1) }.to raise_error("position already taken")
     end
   end
 
