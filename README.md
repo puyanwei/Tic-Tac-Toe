@@ -28,10 +28,7 @@ To see the tests type in `rspec` in the project folder.
 ```ruby
 game = Game.new
  ```
-- Start the game by entering your names.
-```ruby
-game.start("Bob", "Mike")
- ```
+
 - Play by choosing a position on the board.
 
 ```ruby
